@@ -89,8 +89,9 @@ func main() {
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/random", resultPage)
-	err := http.ListenAndServe(":9090", nil) // setting listening port
+	err := http.ListenAndServe(":443", nil) // setting listening port
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
+	//tribes := []string{"Xin-Xi", "Imperius", "Bardur", "Oumaji", "Kickoo", "Hoodrick", "Luxidoor", "Vengir", "Zebasi", "Ai-Mo", "Aquarion"}
 }
