@@ -5,6 +5,7 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
+	"os"
 	"strconv"
 	"time"
 
@@ -89,7 +90,8 @@ func main() {
 	http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets"))))
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/random", resultPage)
-	err := http.ListenAndServe(":443", nil) // setting listening port
+	port := ":" + os.Getenv("PORT")
+	err := http.ListenAndServe(port, nil) // setting listening port
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
