@@ -91,7 +91,8 @@ func main() {
 	http.HandleFunc("/", homePage)
 	http.HandleFunc("/random", resultPage)
 	port := ":" + os.Getenv("PORT")
-	err := http.ListenAndServe(port, nil) // setting listening port
+	err := http.ListenAndServe(port, nil)
+	// err := http.ListenAndServe(":9090", nil) // setting listening port
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
